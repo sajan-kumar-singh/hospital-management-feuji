@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-payer-dashboard',
-  standalone: false,
+  standalone: true,
   templateUrl: './payer-dashboard.html',
   styleUrl: './payer-dashboard.css',
 })

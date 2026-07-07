@@ -9,6 +9,8 @@ services:
       POSTGRES_DB: healthcare_db
     ports:
       - "5432:5432"
+    # This forces the Postgres process itself to initialize using Kolkata
+    command: ["postgres", "-c", "timezone=Asia/Kolkata"]
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

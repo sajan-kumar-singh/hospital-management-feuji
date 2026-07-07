@@ -16,10 +16,10 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     // Basic validation check
-    this.userRole = sessionStorage.getItem('userRole');
-    if (!this.userRole) {
-      this.router.navigate(['/login']);
-    }
+    // this.userRole = sessionStorage.getItem('userRole');
+    // if (!this.userRole) {
+    //   this.router.navigate(['/login']);
+    // }
   }
 
   logout() {

@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar';
 import { CommonModule } from '@angular/common';
 
@@ -11,5 +11,15 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./app.css']
 })
 export class App {
-  protected readonly title = signal('hospital-management-feuji');
+  showSidebar: boolean = true;
+
+  constructor(private router: Router) {
+    // Listen to navigation events
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Hide sidebar if the current URL is '/login'
+        this.showSidebar = event.url !== '/login' && event.url !== '/';
+      }
+    });
+  }
 }
